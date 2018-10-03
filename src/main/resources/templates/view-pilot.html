@@ -7,5 +7,6 @@
 		<h3 th:text= "'Pilot License Number : ' + ${pilot.licenseNumber}"></h3>
 		<h3 th:text="'Pilot Name : ' + ${pilot.name}"></h3>
 		<h3 th:text="'Fly Hour : ' + ${pilot.flyHour}"></h3>
+		<td><a th:href="@{/flight/add/1234}">Add Flight</a></td>
 	</body>
 </html>
