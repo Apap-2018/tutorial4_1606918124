@@ -17,4 +17,11 @@ public class FlightServiceImpl implements FlightService {
 	public void addFlight(FlightModel flight) {
 		flightDB.save(flight);
 	}
+
+	@Override
+	public void deleteFlight(FlightModel flight) {
+		flightDB.delete(flight);
+	}
+
+
 }
