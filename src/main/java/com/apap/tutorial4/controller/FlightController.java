@@ -37,15 +37,9 @@ public class FlightController {
 		return "add";
 	}
 	
-	@RequestMapping(value = "/flight/delete/{licenseNumber}/{flightNumber}", method = RequestMethod.GET)
-	private String delete(@PathVariable(value = "flightNumber") String flightNumber, @PathVariable(value = "licenseNumber") String licenseNumber, Model model) {
-		PilotModel pilot = pilotService.getPilotDetailByLicenseNumber(licenseNumber);
-		for (FlightModel flight:pilot.getPilotFlight()) {
-			if (flight.getPilot().getLicenseNumber().equals(licenseNumber) && flight.getFlightNumber().equals(flightNumber)) {
-				flightService.deleteFlight(flight);
-				System.out.println(flight.getFlightNumber());
-			}
-		}
+	@RequestMapping(value = "/flight/delete/{flightID}", method = RequestMethod.GET)
+	private String delete(@PathVariable(value = "flightID") long flightID, Model model) {
+		flightService.deleteFlightByID(flightID);
 		return "deletePilot";
 	}
 	
