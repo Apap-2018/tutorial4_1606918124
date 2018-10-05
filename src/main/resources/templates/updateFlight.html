@@ -2,14 +2,14 @@
 <html xmlns:th="http://www.thymeleaf.org">
 
 <head>
-	<title>Add Flight</title>
+	<title>Update Flight</title>
 </head>
 
 <body>
-	<h3>Tambah Penerbangan</h3>
-	<form th:action="@{/flight/add}" th:object="${flight}" method="POST">
+	<h3>Update Penerbangan</h3>
+	<form th:action="@{/flight/update}" th:object="${flight}" method="POST">
+		<input type="hidden" th:value="${flight.id}" name="id" />
 		<input type="hidden" th:field="*{pilot}" />
-		<input type="hidden" name="id" th:value="${flight.id}" />
 		Flight Number: <br>
 		<input type="text" name="flightNumber" />
 		<br>

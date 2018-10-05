@@ -5,4 +5,5 @@ import com.apap.tutorial4.model.FlightModel;
 public interface FlightService {
 	void addFlight(FlightModel flight);
 	void deleteFlightByID(long id);
+	FlightModel getFlightByID(long id);
 }

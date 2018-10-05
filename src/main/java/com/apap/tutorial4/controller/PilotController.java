@@ -49,5 +49,19 @@ public class PilotController {
 		return "deletePilot";
 	}
 	
+	@RequestMapping(value = "/pilot/update/{licenseNumber}", method = RequestMethod.GET)
+	private String update(@PathVariable(value = "licenseNumber") String licenseNumber, Model model) {
+		PilotModel pilot = pilotService.getPilotDetailByLicenseNumber(licenseNumber);
+		model.addAttribute("pilot", pilot);
+		return "updatePilot";
+	}
+	
+	@RequestMapping(value = "/pilot/update", method = RequestMethod.POST)
+	private String updatePilotSubmit(@ModelAttribute PilotModel pilot) {
+		pilot.setName(pilot.getName());
+		pilot.setFlyHour(pilot.getFlyHour());
+		pilotService.addPilot(pilot);
+		return "update";
+	}
 	
 }
