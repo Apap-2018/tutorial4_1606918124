@@ -6,7 +6,6 @@
 </head>
 
 <body>
-
 	<h3>Update Pilot</h3>
 	<form th:action="@{/pilot/update}" th:object="${pilot}" method="POST">
 		<input type="hidden" th:value="${pilot.id}" name="id" />
